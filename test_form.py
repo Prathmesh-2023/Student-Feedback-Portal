@@ -1,3 +1,5 @@
+import os
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
@@ -5,7 +7,8 @@ import time
 driver = webdriver.Chrome()
 
 # Open form
-driver.get("file:///C:/path-to-your-form/index.html")
+file_path = os.path.abspath("index.html")
+driver.get("file:///" + file_path)
 
 # Test 1: Page load
 print("Page Title:", driver.title)
