@@ -5,15 +5,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                echo 'Installing dependencies...'
-                bat 'python -m pip install selenium'
+                bat '"C:\\Users\\Prathmesh\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" -m pip install selenium'
             }
         }
 
         stage('Run Selenium Tests') {
             steps {
-                echo 'Running Selenium tests...'
-                bat 'python test_feedback.py'
+                bat '"C:\\Users\\Prathmesh\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" test_feedback.py'
             }
         }
 
@@ -26,7 +24,7 @@ pipeline {
 
     post {
         success {
-            echo 'All tests passed '
+            echo 'All tests passed successfully!'
         }
         failure {
             echo 'Some tests failed '
