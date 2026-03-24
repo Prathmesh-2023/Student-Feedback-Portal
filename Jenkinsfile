@@ -11,7 +11,8 @@ pipeline {
 
         stage('Run Selenium Tests') {
             steps {
-                bat '"C:\\Users\\Prathmesh\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" test_feedback.py'
+                bat 'if not exist test_form.py (echo test_form.py not found in workspace & exit /b 2)'
+                bat '"C:\\Users\\Prathmesh\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" test_form.py'
             }
         }
 
