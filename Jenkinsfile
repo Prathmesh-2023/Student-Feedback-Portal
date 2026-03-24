@@ -6,7 +6,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing dependencies...'
-                bat 'pip install selenium'
+                bat 'python -m pip install selenium'
             }
         }
 
