@@ -1,58 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Feedback Form</title>
-    <link rel="stylesheet" href="style.css"> <!-- External CSS -->
-    <style>
-        /* Internal CSS */
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h2>Student Feedback Form</h2>
-
-    <form id="feedbackForm">
-
-        <label>Student Name:</label>
-        <input type="text" id="name">
-
-        <label>Email ID:</label>
-        <input type="text" id="email">
-
-        <label>Mobile Number:</label>
-        <input type="text" id="mobile">
-
-        <label>Department:</label>
-        <select id="department">
-            <option value="">--Select--</option>
-            <option>Computer Science</option>
-            <option>IT</option>
-            <option>Mechanical</option>
-            <option>Civil</option>
-        </select>
-
-        <label>Gender:</label>
-        <input type="radio" name="gender" value="Male"> Male
-        <input type="radio" name="gender" value="Female"> Female
-
-        <label>Feedback Comments:</label>
-        <textarea id="feedback"></textarea>
-
-        <div class="buttons">
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
+<main class="page-shell">
+    <section class="container" aria-labelledby="formTitle">
+        <div class="form-header">
+            <p class="eyebrow">Course Feedback Portal</p>
+            <h1 id="formTitle">Student Feedback Form</h1>
+            <p class="subtitle">Tell us about your learning experience so we can improve your classes.</p>
         </div>
 
-        <p id="errorMsg"></p>
-        <p id="successMsg"></p>
+        <form id="feedbackForm" novalidate>
 
-    </form>
-</div>
+            <label for="name">Student Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" autocomplete="name" required>
+
+            <label for="email">Email ID</label>
+            <input type="email" id="email" placeholder="you@example.com" autocomplete="email" required>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" autocomplete="tel" required>
+
+            <label for="department">Department</label>
+            <select id="department" required>
+                <option value="">Select department</option>
+                <option>Computer Science</option>
+                <option>IT</option>
+                <option>Mechanical</option>
+                <option>Civil</option>
+            </select>
+
+            <fieldset class="radio-group">
+                <legend>Gender</legend>
+                <label class="radio-option" for="genderMale">
+                    <input type="radio" id="genderMale" name="gender" value="Male">
+                    <span>Male</span>
+                </label>
+                <label class="radio-option" for="genderFemale">
+                    <input type="radio" id="genderFemale" name="gender" value="Female">
+                    <span>Female</span>
+                </label>
+                <label class="radio-option" for="genderOther">
+                    <input type="radio" id="genderOther" name="gender" value="Other">
+                    <span>Other</span>
+                </label>
+            </fieldset>
+
+            <label for="feedback">Feedback Comments</label>
+            <textarea id="feedback" placeholder="Write at least 10 words about your classroom experience" required></textarea>
+            <p class="hint" id="wordCounter">Word count: 0</p>
+
+            <div class="buttons">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+
+            <p id="errorMsg" aria-live="polite"></p>
+            <p id="successMsg" aria-live="polite"></p>
+
+        </form>
+    </section>
+</main>
 
 <script src="script.js"></script>
 </body>
